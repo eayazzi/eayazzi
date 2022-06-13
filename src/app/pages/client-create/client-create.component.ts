@@ -30,7 +30,7 @@ import { ToastrService } from "ngx-toastr";
   ],
 })
 export class ClientCreateComponent implements OnInit {
-  createClient: FormGroup;
+  createClientForm: any;
   submitted = false;
   client: Cliente;
 
@@ -40,23 +40,28 @@ export class ClientCreateComponent implements OnInit {
     private datePipe: DatePipe,
     private _toastr: ToastrService
   ) {
-    this.createClient = this.fb.group({
+    
+  }
+
+  ngOnInit() {
+    this.createForm();
+  }
+
+  createForm() {
+    this.createClientForm = this.fb.group({
       name: ["", Validators.required],
       lastName: ["", Validators.required],
       age: ["", Validators.required],
       dateOfBirth: ["", Validators.required],
     });
   }
-
-  ngOnInit() {}
-
   addClient() {
     this.submitted = true;
-    if (this.createClient.invalid) {
+    if (this.createClientForm.invalid) {
       this._toastr.error("Todos los campos son requeridos");
       return;
     }
-    this.client = this.createClient.value;
+    this.client = this.createClientForm.value;
     this.client.dateOfBirth = new Date(
       this.datePipe.transform(this.client.dateOfBirth, "MM-dd-yyyy")
     );
@@ -65,6 +70,7 @@ export class ClientCreateComponent implements OnInit {
       .addClient(this.client)
       .then(() => {
         this._toastr.success("Cliente registrado");
+        this.createClientForm.reset()
       })
       .catch((error) => {
         this._toastr.success(error);

@@ -1,7 +1,7 @@
 <div class="full-page">
   <mat-card class="form-card">
     <mat-card-title> Agregar Cliente </mat-card-title>
-    <form [formGroup]="createClient" (ngSubmit)="addClient()">
+    <form [formGroup]="createClientForm" (ngSubmit)="addClient()">
       <mat-card-content>
         <mat-form-field class="form-field" appearance="outline">
           <input
@@ -12,9 +12,9 @@
           />
           <mat-hint
             *ngIf="
-              createClient.get('name').invalid &&
-              (createClient.get('name').dirty ||
-                createClient.get('name').touched)
+              createClientForm.get('name').invalid &&
+              (createClientForm.get('name').dirty ||
+                createClientForm.get('name').touched)
             "
             ><span class="text-danger">Nombre es requerido</span></mat-hint
           >
@@ -28,9 +28,9 @@
           />
           <mat-hint
             *ngIf="
-              createClient.get('lastName').invalid &&
-              (createClient.get('lastName').dirty ||
-                createClient.get('lastName').touched)
+              createClientForm.get('lastName').invalid &&
+              (createClientForm.get('lastName').dirty ||
+                createClientForm.get('lastName').touched)
             "
             ><span class="text-danger">Apellido es requerido</span></mat-hint
           >
@@ -44,8 +44,8 @@
           />
           <mat-hint
             *ngIf="
-              createClient.get('age').invalid &&
-              (createClient.get('age').dirty || createClient.get('age').touched)
+              createClientForm.get('age').invalid &&
+              (createClientForm.get('age').dirty || createClientForm.get('age').touched)
             "
             ><span class="text-danger">Edad es requerido</span></mat-hint
           >
@@ -62,9 +62,9 @@
           <mat-datepicker #dp></mat-datepicker>
           <mat-hint
             *ngIf="
-              createClient.get('dateOfBirth').invalid &&
-              (createClient.get('dateOfBirth').dirty ||
-                createClient.get('dateOfBirth').touched)
+              createClientForm.get('dateOfBirth').invalid &&
+              (createClientForm.get('dateOfBirth').dirty ||
+                createClientForm.get('dateOfBirth').touched)
             "
             ><div>
               <span class="text-danger">Fecha es requerido</span>
