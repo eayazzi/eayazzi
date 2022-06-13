@@ -1,0 +1,35 @@
+<div class="full-page">
+  <mat-card class="perfil-card">
+    <mat-card-header>
+      <div mat-card-avatar class="perfil-header-image"></div>
+      <mat-card-title
+        >{{ client[0]?.lastName }}, {{ client[0]?.name }}
+      </mat-card-title>
+      <!-- <mat-card-subtitle>Edad: {{ client.age }}</mat-card-subtitle> -->
+    </mat-card-header>
+    <!-- <img
+      mat-card-image
+      src="../../../assets/perfil.jpg"
+      alt="Perfil"
+    /> -->
+    <mat-card-content>
+      <mat-list role="list">
+        <mat-list-item role="listitem"
+          >Edad: {{ client[0]?.age }}</mat-list-item
+        >
+        <mat-list-item role="listitem"
+          >Fecha de Nacimiento: {{ toDate | date: "dd/MM/yyyy" }}</mat-list-item
+        >
+        <mat-list-item role="listitem"
+          >Posible fecha de defunción:
+          {{ dateExp | date: "dd/MM/yyyy" }}</mat-list-item
+        >
+      </mat-list>
+    </mat-card-content>
+    <!-- <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/clientes']">
+        Volver al listado
+      </button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>

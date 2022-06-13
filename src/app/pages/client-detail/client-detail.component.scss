@@ -1,0 +1,20 @@
+.full-page {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  margin: auto;
+}
+.perfil-card {
+  margin: 20px auto 0 auto;
+  width: 500px;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.perfil-header-image {
+  background-image: url("../../../assets/perfil.jpg");
+  background-size: cover;
+}

@@ -1,0 +1,47 @@
+#toolbarMenu {
+  cursor: pointer;
+  margin-right: 20px;
+}
+#mainToolbar .toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+#mainToolbar .toolbar-icon {
+  cursor: pointer;
+  margin: 0 8px;
+}
+#sidenavContainer {
+  margin-top: 64px;
+}
+
+.mat-sidenav-content {
+  padding: 24px;
+}
+.mat-sidenav {
+  padding-top: 24px;
+}
+.mat-drawer-inner-container {
+  // overflow: hidden !important;
+}
+
+#sidenav .mat-list-item-content {
+  padding: 0;
+}
+
+#sidenav .menu-item {
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+  padding: 10px;
+}
+
+#sidenav .menu-item:hover {
+  background: #eee;
+}
+#sidenav .menu-item mat-icon {
+  margin-right: 20px;
+  margin-left: 12px;
+}
+.mat-list-item.active {
+  color: #b71c1c;
+}

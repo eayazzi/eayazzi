@@ -1,0 +1,170 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+     "title": "Clientes",
+     "description": "Api de clientes",
+     "version": "1.0.0"
+  },
+  "servers": [
+     {
+        "url": "https://firestore.googleapis.com/v1/projects/clientes-54107/databases/(default)/documents"
+     }
+  ],
+  "tags": [
+     {
+        "name": "Clientes",
+        "description": "Este endpoint maneja la informacion de los clientes"
+     }
+  ],
+  "paths": {
+     "/clientes/nuevo": {
+        "post": {
+           "tags": [
+              "clientes"
+           ],
+           "summary": "Agrega nuevo cliente",
+           "requestBody": {
+              "content": {
+                 "application/json": {
+                    "schema": {
+                       "$ref": "#/components/schemas/Clientes"
+                    }
+                 }
+              },
+              "required": true
+           },
+           "responses": {
+              "200": {
+                 "description": "(OK) Cliente creado con éxito",
+                 "content": {
+                    "application/json": {
+                       "schema": {
+                          "$ref": "#/components/schemas/Clientes"
+                       }
+                    }
+                 }
+              },
+              "400": {
+                 "$ref": "#/components/responses/BadRequest"
+              },
+              "404": {
+                 "$ref": "#/components/responses/NotFound"
+              },
+              "500": {
+                 "$ref": "#/components/responses/ServerError"
+              }
+           }
+        }
+     },
+     "/clientes": {
+        "get": {
+           "tags": [
+              "clientes"
+           ],
+           "summary": "Lista todos los clientes'",
+           "parameters": {
+              "schema": {
+                 "type": "string"
+              }
+           },
+           "responses": {
+              "200": {
+                 "description": "(OK)",
+                 "content": {
+                    "application/json": {
+                       "schema": {
+                          "$ref": "#/components/schemas/Clientes"
+                       }
+                    }
+                 }
+              },
+              "400": {
+                 "$ref": "#/components/responses/BadRequest"
+              },
+              "404": {
+                 "$ref": "#/components/responses/NotFound"
+              },
+              "500": {
+                 "$ref": "#/components/responses/ServerError"
+              }
+           }
+        }
+     },
+     "/clientes/{id}": {
+        "get": {
+           "tags": [
+              "clientes"
+           ],
+           "summary": "Muestra los datos del cliente buscado por id'",
+           "parameters": [
+              {
+                 "name": "id",
+                 "in": "path",
+                 "description": "identificador del cliente",
+                 "required": true,
+                 "schema": {
+                    "type": "string"
+                 }
+              }
+           ],
+           "responses": {
+              "200": {
+                 "description": "(OK)",
+                 "content": {
+                    "application/json": {
+                       "schema": {
+                          "$ref": "#/components/schemas/Clientes"
+                       }
+                    }
+                 }
+              },
+              "400": {
+                 "$ref": "#/components/responses/BadRequest"
+              },
+              "404": {
+                 "$ref": "#/components/responses/NotFound"
+              },
+              "500": {
+                 "$ref": "#/components/responses/ServerError"
+              }
+           }
+        }
+     }
+  },
+  "components": {
+     "responses": {
+        "NotFound": {
+           "description": "(NotFound) no se encontró la información"
+        },
+        "BadRequest": {
+           "description": "(BadRequest) los datos enviados son incorrectos o hay datos obligatorios no enviados"
+        },
+        "ServerError": {
+           "description": "(ServerError) Error en el servidor"
+        }
+     },
+     "schemas": {
+        "Clientes": {
+           "type": "object",
+           "properties": {
+              "name": {
+                 "type": "string",
+                 "description": "nombre"
+              },
+              "lastname": {
+                 "type": "string",
+                 "description": "apellido"
+              },
+              "age": {
+                 "type": "number",
+                 "description": "edad"
+              },
+              "date": {
+                 "type": "string",
+                 "description": "fecha"
+              }
+           }
+        }
+     }
+  }
+}

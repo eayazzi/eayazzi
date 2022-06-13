@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "clientes-54107": {
+      "hosting": {
+        "clientes-app": [
+          "clientes-54107"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "clientes-54107"
+  }
+}

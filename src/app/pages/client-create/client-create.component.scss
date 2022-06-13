@@ -1,0 +1,13 @@
+.full-page {
+  height: 100%;
+  display: flex;
+}
+.form-card {
+  margin: 5px auto 5px auto;
+}
+.form-field {
+  width: 100%;
+}
+.content-form .mat-form-field + .mat-form-field {
+  margin-left: 8px !important;
+}
